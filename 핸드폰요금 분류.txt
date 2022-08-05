@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int sum, sum1;
+
+void Y(int n) {
+	while (0 < n) {
+		n = n - 30;
+		sum += 10;
+	}
+}
+
+
+void M(int n) {
+	while (0 < n) {
+		n = n - 60;
+		sum1 += 15;
+	}
+}
+
+int main()
+{
+	int a, b[20] = { 0 };
+	scanf("%d\n", &a);
+	for (int i = 0; i < a; i++) {
+		scanf("%d", &b[i]);
+	}
+	for (int i = 0; i < a; i++) {
+		Y(b[i]);
+		M(b[i]);
+	}
+	if (sum > sum1) {
+		printf("M %d", sum1);
+	}
+	else {
+		printf("Y %d", sum);
+	}
+
+	return 0;
+}
