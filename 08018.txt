@@ -1,0 +1,63 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int max = 0;
+
+void find(int n, int k, int *warr, int *varr, int index, int w, int v)
+{
+	int i;
+
+	if (index == n)
+		return;
+
+	else
+	{
+		
+		if (w + warr[index] <= k)
+		{
+			w += warr[index];
+			v += varr[index];
+
+			if (v > max)
+				max = v;
+
+			for (i = 1; index + i < n; i++)
+				find(n, k, warr, varr, index + i, w, v);
+		}
+		else
+			return;
+	}
+}
+
+
+int main(void)
+{
+	int i, j, n, k, w, v;
+	int *warr, *varr;
+
+	scanf("%d %d", &n, &k);
+
+	warr = (int *)malloc(sizeof(int) * n);
+	varr = (int *)malloc(sizeof(int) * n);
+
+	for (i = 0; i < n; i++)
+	{
+		scanf("%d %d", &warr[i], &varr[i]);
+		if (varr[i] == 0)
+			warr[i] = 0;
+	}
+
+	
+	for(i=0; i<n; i++)
+		find(n, k, warr, varr, i, 0, 0);
+
+	printf("%d", max);
+
+
+	free(warr);
+	free(varr);
+
+	return 0;
+}
