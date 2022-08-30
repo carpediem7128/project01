@@ -1,0 +1,15 @@
+//#include<stdio.h>
+//void hanoi(int n, char s, char m, char e) {
+//   if (n == 1)
+//      printf("%c > %c\n", s, e);
+//   else {
+//      hanoi(n - 1, s, e, m);
+//      printf("%c > %c\n", s, e);
+//      hanoi(n - 1, m, s, e);
+//   }
+//}
+//int main() {
+//   int n;
+//   hanoi(n, 'A', 'B', 'C');
+//   return 0;
+//}
